@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Customer, Product, Order
-from .serializers import CustomerSerializer, ProductSerializer, OrderSerializer
+from .models import *
+#from .serializers import CustomerSerializer, ProductSerializer, OrderSerializer
 
 # Create your views here.
 def home_view(request):
@@ -16,7 +16,13 @@ def product_view(request):
 def order_view(request):
     return render (request, 'shop/orders.html')
 
+def cart_view(request):
+    return render (request, 'shop/cart.html')
 
+def checkout_view(request):
+    return render (request, 'shop/checkout.html')
+
+'''
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
@@ -28,3 +34,5 @@ class ProductViewSet(viewsets.ModelViewSet):
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    
+'''
